@@ -1,2 +1,2 @@
-This just is a test for provate repo.
+This just is a test for private repo.
 ============
