@@ -22,79 +22,79 @@
 \****************************************************************************/
 
 #include <vector>
+#include <algorithm>        
 using namespace std;
 
 class Solution {
 public:
     vector<int> twoSum(vector<int> &numbers, int target) 
     {
-        vector<int> indexes = sort_index(numbers);
         vector<int> result;
-        for (unsigned int pos = 0; pos < indexes.size() ; ++pos) {
-            int expect_number = target - numbers[indexes[pos]];
-            for (unsigned int result_pos = pos + 1; result_pos < indexes.size() 
-                && numbers[indexes[result_pos]] < (target + 1)/2; ++ result_pos) {
-                if (numbers[indexes[result_pos]] == expect_number) {
-                    result.push_back(result_pos > pos ? pos : result_pos);
-                    result.push_back(pos > result_pos ? pos : result_pos);
-                    return result;
-                }
+        init(numbers);
+        sort_data();
+        info expect;
+        vector<info>::iterator ret;
+
+        for (vector<info>::iterator it = data.begin(); it != data.end(); ++it) {
+            expect.key = target - it->key;
+            ret = binary_find(it + 1, data.end(), expect);
+            if (ret == data.end() || ret->index == it->index) {
+                continue;
             }
+            if (ret->index < it->index) {
+                result.push_back(ret->index);
+                result.push_back(it->index);
+            } else {
+                result.push_back(it->index);
+                result.push_back(ret->index);
+            }
+            return result;
         }
         return result;
     }
-    
 private:
-    vector<int> sort_index(vector<int> &numbers) 
+    struct info {
+        unsigned int index;
+        int key;
+
+        bool operator< (const info & x) const
+        {
+            return key < x.key;
+        }
+
+        bool operator== (const info & x) const
+        {
+            return key == x.key;
+        }
+    };
+
+
+    void init(vector<int> &numbers)
     {
-        vector<int> indexes;
-        for (int pos = 0; pos < numbers.size(); ++pos) {
-            indexes.push_back(pos);
+        unsigned int len = numbers.size();
+        data.resize(len);
+        for (unsigned int i = 0; i < len; ++i) {
+            data[i].index = i + 1;
+            data[i].key = numbers[i];
         }
-        
-        if (numbers.size() > 1) {
-            sort_inner(numbers, indexes, 0, numbers.size() - 1);
-        }
-        return indexes;
-        
     }
 
-    void sort_inner(vector<int> &numbers, vector<int> &indexes, int start, int end) 
+    void sort_data()
     {
-        if (start == end) {
-            return;
-        }
-        
-        int middle = (start + end) / 2;
-
-        sort_inner(numbers, indexes, start, middle);
-        sort_inner(numbers, indexes, middle + 1, end);
-        
-        vector<int> temp_index_space;
-        int i = start, j = middle + 1;
-        while(i <= middle && j <= end) {
-            if (numbers[indexes[i]] > numbers[indexes[j]]) {
-                temp_index_space.push_back(indexes[j++]);
-            }
-            else {
-                temp_index_space.push_back(indexes[i++]);
-            }
-        }
-        
-        if (i < middle) {
-            while( i <= middle) {
-                temp_index_space.push_back(indexes[i++]);
-            }
-        }
-        else {
-            while( j <= end) {
-                temp_index_space.push_back(indexes[j++]);  
-            }
-        }
-        
-        for (unsigned int pos = 0; pos < temp_index_space.size(); ++pos ) {
-            indexes[pos + start] = temp_index_space[pos];
-        }
+        sort(data.begin(), data.end());
     }
+
+    vector<info>::iterator binary_find(vector<info>::iterator first, vector<info>::iterator last, info val)
+    {
+        first = lower_bound(first,last,val);
+        if (val == *first) {
+            return first;
+        }
+        return last;
+    }
+
+
+private:
+    vector<info> data;
 };
 
