@@ -34,7 +34,7 @@ __DATE__=`date`
 #fi
             
 cat  <<EOF >$__FILE_NAME__
-/****************************************************************************\
+/****************************************************************************\\
 
     FileName: $__FILE_NAME__
     Description: 
@@ -44,7 +44,7 @@ cat  <<EOF >$__FILE_NAME__
     Email: yzz1215@live.cn
     Create Date: $__DATE__
 
-\****************************************************************************/
+\\****************************************************************************/
 
 #include "cppunit/TestFixture.h"
 #include "cppunit/ui/text/TestRunner.h"
@@ -55,6 +55,9 @@ cat  <<EOF >$__FILE_NAME__
 
 class $__TEST_CLASS__ : public CppUnit::TestFixture 
 {
+protected:
+//    Solution solver;
+
 public:
     $__TEST_CLASS__() {}
     void setUp() {}

@@ -1,14 +1,19 @@
 all: \
+	Longest_Palindromic_Substring \
 	Two_Sum \
 	Median \
 	Substring \
 	Add
 
 test: \
+	test_Longest_Palindromic_Substring \
 	test_two_sum \
 	test_median \
 	test_substring \
-	test_add
+	test_add 
+
+M_Obj_Dir:
+	mkdir -p obj
 
 Two_Sum: Two_Sum.cpp Test_Two_Sum.cpp M_Obj_Dir
 	g++ -g  Test_Two_Sum.cpp -o obj/Two_Sum -lcppunit
@@ -34,5 +39,11 @@ Add: Add_Two_Numbers_TEST.cpp Add_Two_Numbers.cpp M_Obj_Dir
 test_add: Add
 	obj/Add
 
-M_Obj_Dir:
-	mkdir -p obj
+Longest_Palindromic_Substring: Longest_Palindromic_Substring_TEST.cpp Longest_Palindromic_Substring.cpp M_Obj_Dir
+	g++ -g Longest_Palindromic_Substring_TEST.cpp -o Longest_Palindromic_Substring -lcppunit
+
+
+test_Longest_Palindromic_Substring: Longest_Palindromic_Substring
+	obj/Longest_Palindromic_Substring
+
+
