@@ -80,7 +80,7 @@ public:
         ListNode *a = cList(3, 1, 3, 4);
         ListNode *b = cList(3, 2, 4, 7);
         ListNode *ret = solver.addTwoNumbers(a, b);
-        ListNode *expect = cList(3, 3, 8, 1);
+        ListNode *expect = cList(4, 3, 7, 1, 1);
         ListNodeWapper ret_w(ret);
         ListNodeWapper exp_w(expect);
         CPPUNIT_ASSERT(ret_w == exp_w);

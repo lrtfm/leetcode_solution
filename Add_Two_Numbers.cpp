@@ -31,70 +31,48 @@ class Solution {
 public:
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) 
     {
-        stack<int> s1;
-        stack<int> s2;
-        stack<int> s3;
-
-        while(l1 != NULL)
-        {
-            s1.push(l1->val);
-            l1 = l1->next;
-        }
-        while(l2 != NULL)
-        {
-            s2.push(l2->val);
-            l2 = l2->next;
-        }
-            
         int c = 0;
         int tmp;
-        while(!s1.empty()  && !s2.empty())
+        ListNode *ret = new ListNode(0);
+        ListNode *p = ret;
+        while ( l1 != NULL && l2 != NULL )
         {
-            tmp = s1.top() + s2.top() + c;
-            s1.pop(); s2.pop();
+            tmp = l1->val + l2->val + c;
+            l1 = l1->next;
+            l2 = l2->next;
             c = tmp/10;
             tmp = tmp%10;
-            s3.push(tmp);
+            p->next = new ListNode(tmp);
+            p = p->next;
         }
 
-        while(!s1.empty())
+        while( l1 != NULL )
         {
-            tmp = s1.top() + c;
-            s1.pop(); 
+            tmp = l1->val + c;
             c = tmp/10;
             tmp = tmp%10;
-            s3.push(tmp);
+            p->next = new ListNode(tmp);
+            p = p->next;
         }
 
-        while(!s2.empty())
+        while( l2 != NULL )
         {
-            tmp = s2.top() + c;
-            s2.pop();
+            tmp = l2->val + c;
             c = tmp/10;
             tmp = tmp%10;
-            s3.push(tmp);
+            p->next = new ListNode(tmp);
+            p = p->next;
         }
-            
         if (c != 0)
         {
-            s3.push(c);
-        }
-
-        if (s3.empty())
-        {
-            return NULL;
-        }
-            
-        ListNode *ret = new ListNode(s3.top());
-        s3.pop();
-        ListNode *p = ret;
-        while(!s3.empty())
-        {
-            p->next =  new ListNode(s3.top());
+            p->next = new ListNode(c);
             p = p->next;
-            s3.pop();
         }
 
+        
+        p = ret;
+        ret = ret->next;   
+        delete p;
         return ret;
     }
 };
