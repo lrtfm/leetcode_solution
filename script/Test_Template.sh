@@ -52,7 +52,7 @@ cat  <<EOF >>$__FILE_NAME__
 #include "cppunit/TestCaller.h"
 #include "cppunit/TestSuite.h"
 
-#include "$__TEST_FILE__"
+#include "${__TEST_NAME__}.cpp"
 
 class $__TEST_CLASS__ : public CppUnit::TestFixture 
 {
