@@ -84,7 +84,7 @@ public:
         ListNodeWapper ret_w(ret);
         ListNodeWapper exp_w(expect);
         CPPUNIT_ASSERT(ret_w == exp_w);
-        freeList(a); freeList(b); freeList(ret); freeList(expect);
+        //freeList(a); freeList(b); freeList(ret); freeList(expect);
     }
     void test2() 
     {

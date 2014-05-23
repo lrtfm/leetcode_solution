@@ -36,42 +36,47 @@ public:
 
         ListNode *ret;
         ListNode *p;
+        ListNode *s = l2;
         while ( l1 != NULL && l2 != NULL )
         {
             c = l1->val + l2->val + c;
-            l1 = l1->next;
-            l2 = l2->next;
             if (f == false) {
-                ret = new ListNode(c%10);
+                ret = l1;
+                ret->val = c%10;
                 p = ret;
                 f = true;
             }
             else
             {
-                p->next = new ListNode(c%10);
+                p->next = l1;
                 p = p->next;
+                p->val = c%10;
             }
+            l1 = l1->next;
+            l2 = l2->next;
+            p->next = NULL;
             c = c/10;
         }
 
-        while( l1 != NULL )
+        ListNode* tmp = (l1 != NULL) ? l1 : l2;
+        while( tmp != NULL )
         {
-            c = l1->val + c;
-            p->next = new ListNode(c%10);
-            c = c/10;
-        }
-
-        while( l2 != NULL )
-        {
-            c = l2->val + c;
-            p->next = new ListNode(c);
+            c = tmp->val + c;
+            p->next = tmp;
             p = p->next;
+            tmp = tmp->next;
+            p->val = c%10;
+            p->next = NULL;
             c = c/10;
+
         }
+
         if (c != 0)
         {
-            p->next = new ListNode(c);
+            p->next = s;
             p = p->next;
+            p->val = c;
+            p->next = NULL;
         }
         
         return ret;
