@@ -33,8 +33,7 @@ __DATE__=`date`
 #    esac
 #fi
             
-echo >$__FILE_NAME__
-cat  <<EOF >>$__FILE_NAME__
+cat  <<EOF >$__FILE_NAME__
 /****************************************************************************\
 
     FileName: $__FILE_NAME__
