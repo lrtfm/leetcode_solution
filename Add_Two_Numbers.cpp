@@ -32,47 +32,48 @@ public:
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) 
     {
         int c = 0;
-        int tmp;
-        ListNode *ret = new ListNode(0);
-        ListNode *p = ret;
+        bool f = false;
+
+        ListNode *ret;
+        ListNode *p;
         while ( l1 != NULL && l2 != NULL )
         {
-            tmp = l1->val + l2->val + c;
+            c = l1->val + l2->val + c;
             l1 = l1->next;
             l2 = l2->next;
-            c = tmp/10;
-            tmp = tmp%10;
-            p->next = new ListNode(tmp);
-            p = p->next;
+            if (f == false) {
+                ret = new ListNode(c%10);
+                p = ret;
+                f = true;
+            }
+            else
+            {
+                p->next = new ListNode(c%10);
+                p = p->next;
+            }
+            c = c/10;
         }
 
         while( l1 != NULL )
         {
-            tmp = l1->val + c;
-            c = tmp/10;
-            tmp = tmp%10;
-            p->next = new ListNode(tmp);
-            p = p->next;
+            c = l1->val + c;
+            p->next = new ListNode(c%10);
+            c = c/10;
         }
 
         while( l2 != NULL )
         {
-            tmp = l2->val + c;
-            c = tmp/10;
-            tmp = tmp%10;
-            p->next = new ListNode(tmp);
+            c = l2->val + c;
+            p->next = new ListNode(c);
             p = p->next;
+            c = c/10;
         }
         if (c != 0)
         {
             p->next = new ListNode(c);
             p = p->next;
         }
-
         
-        p = ret;
-        ret = ret->next;   
-        delete p;
         return ret;
     }
 };
