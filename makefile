@@ -40,7 +40,7 @@ test_add: Add
 	obj/Add
 
 Longest_Palindromic_Substring: Longest_Palindromic_Substring_TEST.cpp Longest_Palindromic_Substring.cpp M_Obj_Dir
-	g++ -g Longest_Palindromic_Substring_TEST.cpp -o Longest_Palindromic_Substring -lcppunit
+	g++ -g Longest_Palindromic_Substring_TEST.cpp -o obj/Longest_Palindromic_Substring -lcppunit
 
 
 test_Longest_Palindromic_Substring: Longest_Palindromic_Substring

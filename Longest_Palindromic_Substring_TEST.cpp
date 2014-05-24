@@ -28,27 +28,32 @@ public:
     void test1() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(1 == 1);
+        string ret = solver.longestPalindrome("a");
+        CPPUNIT_ASSERT(ret == string("a"));
     }
     void test2() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(2 == 2);
+        string ret = solver.longestPalindrome("abccba");
+        CPPUNIT_ASSERT(ret == string("abccba"));
     }
     void test3() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(3 == 3);
+        string ret = solver.longestPalindrome("abcdeedabcdeffedc");
+        CPPUNIT_ASSERT(ret == string("cdeffedc"));
     }
     void test4() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(4 == 4);
+        string ret = solver.longestPalindrome("abbaaddaabccba");
+        CPPUNIT_ASSERT(ret == string("baaddaab"));
     }
     void test5() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(5 == 5);
+        string ret = solver.longestPalindrome("aaaaaaaaa");
+        CPPUNIT_ASSERT(ret == string("aaaaaaaaa"));
     }
     void tearDown() {}
 };

@@ -36,7 +36,7 @@ cp makefile obj/makefile
 sed -e "$command1" obj/makefile | sed -e "$command2" > makefile
 
 echo "$1: ${1}_TEST.cpp ${1}.cpp M_Obj_Dir" >>makefile
-echo -e "\tg++ -g ${1}_TEST.cpp -o ${1} -lcppunit\n\n" >>makefile
+echo -e "\tg++ -g ${1}_TEST.cpp -o obj/${1} -lcppunit\n\n" >>makefile
 echo "test_${1}: $1" >> makefile
 echo -e "\tobj/$1\n\n" >> makefile
 
