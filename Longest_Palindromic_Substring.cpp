@@ -21,12 +21,9 @@ public:
 
         int maxlen = 0;
         int start = 0;
-        //bool *(isPalindrome)[][] = new bool[len][len];
         bool isPalindrome[len][len];
         for (size_t i = 0; i < len; i++) {
-            for (size_t j = i; j < len; j++) {
-                isPalindrome[i][j] = (i == j);
-            }
+            isPalindrome[i][i] = true;
             if (i != 0) {
                 isPalindrome[i][i - 1] = true;
             }
