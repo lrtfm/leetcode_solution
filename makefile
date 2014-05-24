@@ -1,4 +1,6 @@
 all: \
+	Regular_Expression_Matching \
+	Palindrome_Number \
 	Minimum_Path_Sum \
 	String_to_Integer \
 	Reverse_Integer \
@@ -10,6 +12,8 @@ all: \
 	Add
 
 test: \
+	test_Regular_Expression_Matching \
+	test_Palindrome_Number \
 	test_Minimum_Path_Sum \
 	test_String_to_Integer \
 	test_Reverse_Integer \
@@ -68,4 +72,14 @@ Minimum_Path_Sum: Minimum_Path_Sum_TEST.cpp Minimum_Path_Sum.cpp M_Obj_Dir
 	g++ -g Minimum_Path_Sum_TEST.cpp -o obj/Minimum_Path_Sum -lcppunit
 test_Minimum_Path_Sum: Minimum_Path_Sum
 	obj/Minimum_Path_Sum
+
+Palindrome_Number: Palindrome_Number_TEST.cpp Palindrome_Number.cpp M_Obj_Dir
+	g++ -g Palindrome_Number_TEST.cpp -o obj/Palindrome_Number -lcppunit
+test_Palindrome_Number: Palindrome_Number
+	obj/Palindrome_Number
+
+Regular_Expression_Matching: Regular_Expression_Matching_TEST.cpp Regular_Expression_Matching.cpp M_Obj_Dir
+	g++ -g Regular_Expression_Matching_TEST.cpp -o obj/Regular_Expression_Matching -lcppunit
+test_Regular_Expression_Matching: Regular_Expression_Matching
+	obj/Regular_Expression_Matching
 
