@@ -16,5 +16,25 @@ public:
             return false;
         }
 
+        if (*s == '\0' || *p == '\0') {
+            return *s == *p;
+        }
+
+        if (*(p+1) != '*') {
+            if ( *p == *s || *p == '.' ) {
+                return isMatch(s + 1, p + 1);
+            }
+            return false;
+        } else {
+            while ( *s != '\0' && (*p == *s || *p == '.')) {
+                if (isMatch(s, p + 2)) {
+                    return true;
+                } 
+                s++;
+            } 
+            return isMatch(s, p + 2);
+        }
+
+        return false;
     }
 };
