@@ -17,28 +17,32 @@ class Solution {
 public:
     string longestPalindrome(string s) {
         size_t len = s.size();
-        if (len <= 1) { return s; }
+        if (len <= 1) return s;
 
-        bool f = false;
-        string ret = s.substr(0, 1);
-        for (size_t i = 0; i < len; ++i) {
-            size_t found = s.substr(i).find_last_of(s[i]);
-            while (found != 0) { 
-                f = true;
-                for (size_t j = 0; j < (found + 1)/2; ++j) {
-                    if (s[i + j] == s[i + found - j]) {
-                        continue;
-                    } else {
-                        f = false; 
-                    }
-                }
-                if (f == true && found + 1 > ret.size() ) {
-                    ret = s.substr(i, found + 1);
-                    break;
-                }
-                found = s.substr(i, found).find_last_of(s[i]);
+        int maxlen = 0;
+        int start = 0;
+        //bool *(isPalindrome)[][] = new bool[len][len];
+        bool isPalindrome[len][len];
+        for (size_t i = 0; i < len; i++) {
+            for (size_t j = i; j < len; j++) {
+                isPalindrome[i][j] = (i == j);
+            }
+            if (i != 0) {
+                isPalindrome[i][i - 1] = true;
             }
         }
-        return ret;
+
+        for (size_t k = 1; k < len; k++) {
+            for (size_t i = 0; i < len - k; i++) {
+                isPalindrome[i][i+k] = (
+                        s[i] == s[i+k] && isPalindrome[i+1][i+k-1]);
+                if (isPalindrome[i][i+k] && k > maxlen) {
+                    start = i;
+                    maxlen = k;
+                }
+            }
+        }
+
+        return s.substr(start, maxlen + 1);
     }
 };
