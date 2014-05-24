@@ -56,7 +56,7 @@ cat  <<EOF >$__FILE_NAME__
 class $__TEST_CLASS__ : public CppUnit::TestFixture 
 {
 protected:
-//    Solution solver;
+    Solution solver;
 
 public:
     $__TEST_CLASS__() {}
