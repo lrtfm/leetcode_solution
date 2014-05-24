@@ -1,4 +1,5 @@
 all: \
+	ZigZag_Conversion \
 	Longest_Palindromic_Substring \
 	Two_Sum \
 	Median \
@@ -6,6 +7,7 @@ all: \
 	Add
 
 test: \
+	test_ZigZag_Conversion \
 	test_Longest_Palindromic_Substring \
 	test_two_sum \
 	test_median \
@@ -45,5 +47,13 @@ Longest_Palindromic_Substring: Longest_Palindromic_Substring_TEST.cpp Longest_Pa
 
 test_Longest_Palindromic_Substring: Longest_Palindromic_Substring
 	obj/Longest_Palindromic_Substring
+
+
+ZigZag_Conversion: ZigZag_Conversion_TEST.cpp ZigZag_Conversion.cpp M_Obj_Dir
+	g++ -g ZigZag_Conversion_TEST.cpp -o obj/ZigZag_Conversion -lcppunit
+
+
+test_ZigZag_Conversion: ZigZag_Conversion
+	obj/ZigZag_Conversion
 
 
