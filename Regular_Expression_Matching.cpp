@@ -40,8 +40,7 @@ public:
         for (int i = len_s - 1; i >= 0; i--) {
             for (int k = len_p - 1; k >= 0; k--) {
                 if (p[k] != '*') {
-                    dp[k][i] = dp[k+1][i+1] && 
-                        (p[k] == '.' || p[k] == s[i]);
+                    dp[k][i] = dp[k+1][i+1] && (p[k] == '.' || p[k] == s[i]);
                 } else {
                     k--;
                     int j = 0; 
@@ -57,30 +56,29 @@ public:
         return dp[0][0];
     }
 
-    bool isMatch_r(const char *s, const char *p) {
+    /* r  *
+    bool isMatch(const char *s, const char *p) {
         if (p == NULL || s == NULL) {
             return false;
         }
 
-        if (*s == '\0' || *p == '\0') {
-            return *s == *p;
-        }
+        if (*p == '\0') return *s == *p;
 
         if (*(p+1) != '*') {
-            if ( *p == *s || *p == '.' ) {
-                return isMatch(s + 1, p + 1);
+            if ( *s != 0 && (*p == *s || *p == '.' )) { 
+                return isMatch(s + 1, p + 1); 
             }
             return false;
         } else {
             while ( *s != '\0' && (*p == *s || *p == '.')) {
                 if (isMatch(s, p + 2)) {
                     return true;
-                } 
+                }
                 s++;
-            } 
-            return isMatch(s, p + 2);
+            }
+            return isMatch(s, p + 2); 
         }
-
         return false;
-    }
+    } */ 
+
 };
