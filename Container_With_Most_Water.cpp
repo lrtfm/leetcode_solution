@@ -9,6 +9,9 @@
     Create Date: 2014年05月25日 15:21:57
 
 \****************************************************************************/
+#include <vector>
+using namespace std;
+
 class Solution {
 public:
     int maxArea(vector<int> &height) {

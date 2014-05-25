@@ -28,32 +28,38 @@ public:
     void test1() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(1 == 1);
+        string ret = solver.intToRoman(0);
+        CPPUNIT_ASSERT(ret == "");
     }
     void test2() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(2 == 2);
+        string ret = solver.intToRoman(1);
+        CPPUNIT_ASSERT(ret == "I");
     }
     void test3() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(3 == 3);
+        string ret = solver.intToRoman(4);
+        CPPUNIT_ASSERT(ret == "IV");
     }
     void test4() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(4 == 4);
+        string ret = solver.intToRoman(6);
+        CPPUNIT_ASSERT(ret == "VI");
     }
     void test5() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(5 == 5);
+        string ret = solver.intToRoman(5);
+        CPPUNIT_ASSERT(ret == "V");
     }
     void test6() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(6 == 6);
+        string ret = solver.intToRoman(9);
+        CPPUNIT_ASSERT(ret == "IX");
     }
     void test7() 
     {

@@ -28,52 +28,62 @@ public:
     void test1() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(1 == 1);
+        int ret = solver.romanToInt("I");
+        CPPUNIT_ASSERT(ret == 1);
     }
     void test2() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(2 == 2);
+        int ret = solver.romanToInt("IV");
+        CPPUNIT_ASSERT(ret == 4);
     }
     void test3() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(3 == 3);
+        int ret = solver.romanToInt("V");
+        CPPUNIT_ASSERT(ret == 5);
     }
     void test4() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(4 == 4);
+        int ret = solver.romanToInt("IX");
+        CPPUNIT_ASSERT(ret == 9);
     }
     void test5() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(5 == 5);
+        int ret = solver.romanToInt("XIV");
+        CPPUNIT_ASSERT(ret == 14);
     }
     void test6() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(6 == 6);
+        int ret = solver.romanToInt("XVI");
+        CPPUNIT_ASSERT(ret == 16);
     }
     void test7() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(7 == 7);
+        int ret = solver.romanToInt("CXCIX");
+        CPPUNIT_ASSERT(ret == 199);
     }
     void test8() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(8 == 8);
+        int ret = solver.romanToInt("MCDXXXVII");
+        CPPUNIT_ASSERT(ret == 1437);
     }
     void test9() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(9 == 9);
+        int ret = solver.romanToInt("MDCCCLXXX");
+        CPPUNIT_ASSERT(ret == 1880);
     }
     void test10() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(10 == 10);
+        int ret = solver.romanToInt("MMMCCCXXXIII");
+        CPPUNIT_ASSERT(ret == 3333);
     }
     void tearDown() {}
 };
