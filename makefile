@@ -1,4 +1,6 @@
 all: \
+	Sum4 \
+	3Sum_Closest \
 	Regular_Expression_Matching \
 	Palindrome_Number \
 	Minimum_Path_Sum \
@@ -12,6 +14,8 @@ all: \
 	Add
 
 test: \
+	test_Sum4 \
+	test_3Sum_Closest \
 	test_Regular_Expression_Matching \
 	test_Palindrome_Number \
 	test_Minimum_Path_Sum \
@@ -82,4 +86,14 @@ Regular_Expression_Matching: Regular_Expression_Matching_TEST.cpp Regular_Expres
 	g++ -g Regular_Expression_Matching_TEST.cpp -o obj/Regular_Expression_Matching -lcppunit
 test_Regular_Expression_Matching: Regular_Expression_Matching
 	obj/Regular_Expression_Matching
+
+3Sum_Closest: 3Sum_Closest_TEST.cpp 3Sum_Closest.cpp M_Obj_Dir
+	g++ -g 3Sum_Closest_TEST.cpp -o obj/3Sum_Closest -lcppunit
+test_3Sum_Closest: 3Sum_Closest
+	obj/3Sum_Closest
+
+Sum4: Sum4_TEST.cpp Sum4.cpp M_Obj_Dir
+	g++ -g Sum4_TEST.cpp -o obj/Sum4 -lcppunit
+test_Sum4: Sum4
+	obj/Sum4
 
