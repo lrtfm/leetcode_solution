@@ -1,6 +1,9 @@
 all: \
 	Sum4 \
 	3Sum_Closest \
+	Roman_to_Integer \
+	Integer_to_Roman \
+	Container_With_Most_Water \
 	Regular_Expression_Matching \
 	Palindrome_Number \
 	Minimum_Path_Sum \
@@ -16,6 +19,9 @@ all: \
 test: \
 	test_Sum4 \
 	test_3Sum_Closest \
+	test_Roman_to_Integer \
+	test_Integer_to_Roman \
+	test_Container_With_Most_Water \
 	test_Regular_Expression_Matching \
 	test_Palindrome_Number \
 	test_Minimum_Path_Sum \
@@ -87,6 +93,7 @@ Regular_Expression_Matching: Regular_Expression_Matching_TEST.cpp Regular_Expres
 test_Regular_Expression_Matching: Regular_Expression_Matching
 	obj/Regular_Expression_Matching
 
+<<<<<<< HEAD
 3Sum_Closest: 3Sum_Closest_TEST.cpp 3Sum_Closest.cpp M_Obj_Dir
 	g++ -g 3Sum_Closest_TEST.cpp -o obj/3Sum_Closest -lcppunit
 test_3Sum_Closest: 3Sum_Closest
@@ -96,4 +103,20 @@ Sum4: Sum4_TEST.cpp Sum4.cpp M_Obj_Dir
 	g++ -g Sum4_TEST.cpp -o obj/Sum4 -lcppunit
 test_Sum4: Sum4
 	obj/Sum4
+=======
+Container_With_Most_Water: Container_With_Most_Water_TEST.cpp Container_With_Most_Water.cpp M_Obj_Dir
+	g++ -g Container_With_Most_Water_TEST.cpp -o obj/Container_With_Most_Water -lcppunit
+test_Container_With_Most_Water: Container_With_Most_Water
+	obj/Container_With_Most_Water
+
+Integer_to_Roman: Integer_to_Roman_TEST.cpp Integer_to_Roman.cpp M_Obj_Dir
+	g++ -g Integer_to_Roman_TEST.cpp -o obj/Integer_to_Roman -lcppunit
+test_Integer_to_Roman: Integer_to_Roman
+	obj/Integer_to_Roman
+
+Roman_to_Integer: Roman_to_Integer_TEST.cpp Roman_to_Integer.cpp M_Obj_Dir
+	g++ -g Roman_to_Integer_TEST.cpp -o obj/Roman_to_Integer -lcppunit
+test_Roman_to_Integer: Roman_to_Integer
+	obj/Roman_to_Integer
+>>>>>>> 118ef54f484d0b5002846481771c6e7caa1d8e9b
 
