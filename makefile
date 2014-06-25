@@ -1,4 +1,7 @@
 all: \
+	Generate_Parentheses \
+	Valid_Parentheses \
+	Max_Points_on_a_Line \
 	Sum4 \
 	3Sum_Closest \
 	Roman_to_Integer \
@@ -17,6 +20,9 @@ all: \
 	Add
 
 test: \
+	test_Generate_Parentheses \
+	test_Valid_Parentheses \
+	test_Max_Points_on_a_Line \
 	test_Sum4 \
 	test_3Sum_Closest \
 	test_Roman_to_Integer \
@@ -93,17 +99,16 @@ Regular_Expression_Matching: Regular_Expression_Matching_TEST.cpp Regular_Expres
 test_Regular_Expression_Matching: Regular_Expression_Matching
 	obj/Regular_Expression_Matching
 
-<<<<<<< HEAD
 3Sum_Closest: 3Sum_Closest_TEST.cpp 3Sum_Closest.cpp M_Obj_Dir
 	g++ -g 3Sum_Closest_TEST.cpp -o obj/3Sum_Closest -lcppunit
 test_3Sum_Closest: 3Sum_Closest
 	obj/3Sum_Closest
 
 Sum4: Sum4_TEST.cpp Sum4.cpp M_Obj_Dir
-	g++ -g Sum4_TEST.cpp -o obj/Sum4 -lcppunit
+	g++ -g -std=c++11 Sum4_TEST.cpp -o obj/Sum4 -lcppunit
 test_Sum4: Sum4
 	obj/Sum4
-=======
+
 Container_With_Most_Water: Container_With_Most_Water_TEST.cpp Container_With_Most_Water.cpp M_Obj_Dir
 	g++ -g Container_With_Most_Water_TEST.cpp -o obj/Container_With_Most_Water -lcppunit
 test_Container_With_Most_Water: Container_With_Most_Water
@@ -118,5 +123,19 @@ Roman_to_Integer: Roman_to_Integer_TEST.cpp Roman_to_Integer.cpp M_Obj_Dir
 	g++ -g Roman_to_Integer_TEST.cpp -o obj/Roman_to_Integer -lcppunit
 test_Roman_to_Integer: Roman_to_Integer
 	obj/Roman_to_Integer
->>>>>>> 118ef54f484d0b5002846481771c6e7caa1d8e9b
+
+Max_Points_on_a_Line: Max_Points_on_a_Line_TEST.cpp Max_Points_on_a_Line.cpp M_Obj_Dir
+	g++ -g Max_Points_on_a_Line_TEST.cpp -o obj/Max_Points_on_a_Line -lcppunit
+test_Max_Points_on_a_Line: Max_Points_on_a_Line
+	obj/Max_Points_on_a_Line
+
+Valid_Parentheses: Valid_Parentheses_TEST.cpp Valid_Parentheses.cpp M_Obj_Dir
+	g++ -g Valid_Parentheses_TEST.cpp -o obj/Valid_Parentheses -lcppunit
+test_Valid_Parentheses: Valid_Parentheses
+	obj/Valid_Parentheses
+
+Generate_Parentheses: Generate_Parentheses_TEST.cpp Generate_Parentheses.cpp M_Obj_Dir
+	g++ -g Generate_Parentheses_TEST.cpp -o obj/Generate_Parentheses -lcppunit
+test_Generate_Parentheses: Generate_Parentheses
+	obj/Generate_Parentheses
 

@@ -8,11 +8,54 @@
     Create Date: Tue May 27 12:14:55 CST 2014
 \****************************************************************************/
 #include <vector>
+#include <unordered_map>
 #include <algorithm>
 using namespace std;
 
 class Solution {
 public:
+    typedef vector<pair<int,int> > VP; 
+    typedef pair<int,int> PII; 
+
+    vector<vector<int> > fourSum(vector<int> &num, int target) {
+        sort(num.begin(),num.end());
+        int len = num.size(); 
+        unordered_map<int,VP> dict; 
+        for(int i = 0; i < len-1 ; i ++)
+            for(int j = i+1; j < len ; j++)
+                dict[num[i]+num[j]].push_back(pair<int,int>(i,j));
+        vector<vector<int> > res; 
+        unordered_map<int,VP>::iterator pos = dict.begin(); 
+        while(pos != dict.end()){
+            int s1 = pos->first; 
+            int s2 = target-s1;
+            if(s1 > s2)
+                break;
+            ++pos; 
+            if(dict.find(s2) != dict.end()){
+                VP p1 = dict[s1]; 
+                VP p2 = dict[s2]; 
+                for(int i = 0; i < p1.size(); i ++)
+                    for(int j = 0; j < p2.size(); j++){
+                        PII pi1 = p1[i]; 
+                        PII pi2 = p2[j];
+                        int i1 = pi1.first; int i2 = pi1.second; 
+                        int j1 = pi2.first; int j2 = pi2.second; 
+                        if(i1 != j1 && i1 != j2 && i2 != j1 && i2 != j2){
+                            vector<int> temp; 
+                            temp.push_back(num[i1]); temp.push_back(num[i2]); temp.push_back(num[j1]); temp.push_back(num[j2]);
+                            sort(temp.begin(),temp.end()); 
+                            res.push_back(temp);
+                        }
+                    }
+            }
+        }
+        sort(res.begin(),res.end()); 
+        vector<vector<int> >::iterator iter = unique(res.begin(),res.end()); 
+        res.resize(distance(res.begin(),iter));
+        return res;
+    }
+    /*
     vector<vector<int> > fourSum(vector<int> &num, int target) {
         size_t len = num.size();
         vector< vector<int> > ret;
@@ -77,4 +120,5 @@ public:
         }
         return ret;
     }
+    */
 };

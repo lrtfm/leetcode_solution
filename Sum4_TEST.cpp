@@ -29,8 +29,8 @@ public:
     void test1() 
     {
         // add your code here.
-        vector<int> num = cvector(6, -3, -1, 0, 2, 4, 5);
-        vector<int> exp = cvector(4, -3, -1, 2, 4);
+        vector<int> num = cvector(4, 2, 1, 0, -1);
+        vector<int> exp = cvector(4, -1, 0, 1, 2);
         vector<vector<int> > expret;
         expret.push_back(exp);
         vector<vector<int> > ret = solver.fourSum(num, 2);

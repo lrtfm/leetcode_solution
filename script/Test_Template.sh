@@ -50,6 +50,7 @@ cat  <<EOF >$__FILE_NAME__
 #include "cppunit/ui/text/TestRunner.h"
 #include "cppunit/TestCaller.h"
 #include "cppunit/TestSuite.h"
+#include "common.h"
 
 #include "${__TEST_NAME__}.cpp"
 
