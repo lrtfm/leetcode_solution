@@ -1,4 +1,6 @@
 all: \
+	Longest_Valid_Parentheses \
+	Next_Permutation \
 	Merge_Two_Sorted_Lists \
 	Substring_with_Concatenation_of_All_Words \
 	Generate_Parentheses \
@@ -22,6 +24,8 @@ all: \
 	Add
 
 test: \
+	test_Longest_Valid_Parentheses \
+	test_Next_Permutation \
 	test_Merge_Two_Sorted_Lists \
 	test_Substring_with_Concatenation_of_All_Words \
 	test_Generate_Parentheses \
@@ -152,4 +156,14 @@ Merge_Two_Sorted_Lists: Merge_Two_Sorted_Lists_TEST.cpp Merge_Two_Sorted_Lists.c
 	g++ -g Merge_Two_Sorted_Lists_TEST.cpp -o obj/Merge_Two_Sorted_Lists -lcppunit
 test_Merge_Two_Sorted_Lists: Merge_Two_Sorted_Lists
 	obj/Merge_Two_Sorted_Lists
+
+Next_Permutation: Next_Permutation_TEST.cpp Next_Permutation.cpp M_Obj_Dir
+	g++ -g Next_Permutation_TEST.cpp -o obj/Next_Permutation -lcppunit
+test_Next_Permutation: Next_Permutation
+	obj/Next_Permutation
+
+Longest_Valid_Parentheses: Longest_Valid_Parentheses_TEST.cpp Longest_Valid_Parentheses.cpp M_Obj_Dir
+	g++ -g Longest_Valid_Parentheses_TEST.cpp -o obj/Longest_Valid_Parentheses -lcppunit
+test_Longest_Valid_Parentheses: Longest_Valid_Parentheses
+	obj/Longest_Valid_Parentheses
 
