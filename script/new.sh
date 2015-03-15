@@ -37,8 +37,8 @@ Test_Command=`dirname $0`/Test_Template.sh
 command1="/^all:/a \\\\t${__NAME__} \\\\"
 command2="/^test:/a \\\\ttest_${__NAME__} \\\\"
 
-cp makefile obj/makefile
-sed -e "$command1" obj/makefile | sed -e "$command2" > makefile
+cp makefile makefile.orig
+sed -e "$command1" makefile.orig | sed -e "$command2" > makefile
 
 echo "${__NAME__}: ${__TEST_FILE_NAME__} ${__FILE_NAME__} M_Obj_Dir" >>makefile
 echo -e "\tg++ -g ${__TEST_FILE_NAME__} -o obj/$__NAME__ -lcppunit" >>makefile

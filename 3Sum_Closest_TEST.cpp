@@ -29,7 +29,7 @@ public:
     void test1() 
     {
         // add your code here.
-        vector<int> num = cvector(4, 1, 1, 1, 0);
+        vector<int> num = cvector<int>(4, 1, 1, 1, 0);
         int ret = solver.threeSumClosest(num, 100);
         CPPUNIT_ASSERT(ret == 3);
     }

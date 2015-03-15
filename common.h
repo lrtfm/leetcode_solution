@@ -5,8 +5,9 @@
 #include <map>
 #include <set>
 #include <stack>
+#include <algorithm>
 using namespace std;
-template < class T >
+template < typename T >
 vector<T> cvector(int n, ...)
 {
     vector<T> ret;
@@ -20,19 +21,21 @@ vector<T> cvector(int n, ...)
 
     return ret;
 }    
-/*
-vector<int> cvector(int n, ...)
+
+template < typename T >
+vector<T> cvectorp(int n, ...)
 {
-    vector<int> ret;
+    vector<T> ret;
     va_list arg_ptr;
     va_start(arg_ptr, n);
     for (int i = 0; i < n; ++i) {
-        int value = va_arg(arg_ptr, int);
+        T value = *(va_arg(arg_ptr, T*));
         ret.push_back(value);
     }
     va_end(arg_ptr);
 
     return ret;
-}*/    
+}    
+
 
 #endif

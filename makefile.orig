@@ -1,5 +1,4 @@
 all: \
-	Merge_Two_Sorted_Lists \
 	Substring_with_Concatenation_of_All_Words \
 	Generate_Parentheses \
 	Valid_Parentheses \
@@ -22,7 +21,6 @@ all: \
 	Add
 
 test: \
-	test_Merge_Two_Sorted_Lists \
 	test_Substring_with_Concatenation_of_All_Words \
 	test_Generate_Parentheses \
 	test_Valid_Parentheses \
@@ -147,9 +145,4 @@ Substring_with_Concatenation_of_All_Words: Substring_with_Concatenation_of_All_W
 	g++ -g Substring_with_Concatenation_of_All_Words_TEST.cpp -o obj/Substring_with_Concatenation_of_All_Words -lcppunit
 test_Substring_with_Concatenation_of_All_Words: Substring_with_Concatenation_of_All_Words
 	obj/Substring_with_Concatenation_of_All_Words
-
-Merge_Two_Sorted_Lists: Merge_Two_Sorted_Lists_TEST.cpp Merge_Two_Sorted_Lists.cpp M_Obj_Dir
-	g++ -g Merge_Two_Sorted_Lists_TEST.cpp -o obj/Merge_Two_Sorted_Lists -lcppunit
-test_Merge_Two_Sorted_Lists: Merge_Two_Sorted_Lists
-	obj/Merge_Two_Sorted_Lists
 
