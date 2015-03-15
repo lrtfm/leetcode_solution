@@ -1,4 +1,7 @@
 all: \
+	Search_for_a_Range \
+	Search_in_Rotated_Sorted_Array \
+	Longest_Valid_Parentheses \
 	Next_Permutation \
 	Merge_Two_Sorted_Lists \
 	Substring_with_Concatenation_of_All_Words \
@@ -23,6 +26,9 @@ all: \
 	Add
 
 test: \
+	test_Search_for_a_Range \
+	test_Search_in_Rotated_Sorted_Array \
+	test_Longest_Valid_Parentheses \
 	test_Next_Permutation \
 	test_Merge_Two_Sorted_Lists \
 	test_Substring_with_Concatenation_of_All_Words \
@@ -159,4 +165,19 @@ Next_Permutation: Next_Permutation_TEST.cpp Next_Permutation.cpp M_Obj_Dir
 	g++ -g Next_Permutation_TEST.cpp -o obj/Next_Permutation -lcppunit
 test_Next_Permutation: Next_Permutation
 	obj/Next_Permutation
+
+Longest_Valid_Parentheses: Longest_Valid_Parentheses_TEST.cpp Longest_Valid_Parentheses.cpp M_Obj_Dir
+	g++ -g Longest_Valid_Parentheses_TEST.cpp -o obj/Longest_Valid_Parentheses -lcppunit
+test_Longest_Valid_Parentheses: Longest_Valid_Parentheses
+	obj/Longest_Valid_Parentheses
+
+Search_in_Rotated_Sorted_Array: Search_in_Rotated_Sorted_Array_TEST.cpp Search_in_Rotated_Sorted_Array.cpp M_Obj_Dir
+	g++ -g Search_in_Rotated_Sorted_Array_TEST.cpp -o obj/Search_in_Rotated_Sorted_Array -lcppunit
+test_Search_in_Rotated_Sorted_Array: Search_in_Rotated_Sorted_Array
+	obj/Search_in_Rotated_Sorted_Array
+
+Search_for_a_Range: Search_for_a_Range_TEST.cpp Search_for_a_Range.cpp M_Obj_Dir
+	g++ -g Search_for_a_Range_TEST.cpp -o obj/Search_for_a_Range -lcppunit
+test_Search_for_a_Range: Search_for_a_Range
+	obj/Search_for_a_Range
 

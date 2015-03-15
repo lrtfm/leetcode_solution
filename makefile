@@ -1,4 +1,7 @@
 all: \
+	Search_Insert_Position \
+	Search_for_a_Range \
+	Search_in_Rotated_Sorted_Array \
 	Longest_Valid_Parentheses \
 	Next_Permutation \
 	Merge_Two_Sorted_Lists \
@@ -24,6 +27,9 @@ all: \
 	Add
 
 test: \
+	test_Search_Insert_Position \
+	test_Search_for_a_Range \
+	test_Search_in_Rotated_Sorted_Array \
 	test_Longest_Valid_Parentheses \
 	test_Next_Permutation \
 	test_Merge_Two_Sorted_Lists \
@@ -166,4 +172,19 @@ Longest_Valid_Parentheses: Longest_Valid_Parentheses_TEST.cpp Longest_Valid_Pare
 	g++ -g Longest_Valid_Parentheses_TEST.cpp -o obj/Longest_Valid_Parentheses -lcppunit
 test_Longest_Valid_Parentheses: Longest_Valid_Parentheses
 	obj/Longest_Valid_Parentheses
+
+Search_in_Rotated_Sorted_Array: Search_in_Rotated_Sorted_Array_TEST.cpp Search_in_Rotated_Sorted_Array.cpp M_Obj_Dir
+	g++ -g Search_in_Rotated_Sorted_Array_TEST.cpp -o obj/Search_in_Rotated_Sorted_Array -lcppunit
+test_Search_in_Rotated_Sorted_Array: Search_in_Rotated_Sorted_Array
+	obj/Search_in_Rotated_Sorted_Array
+
+Search_for_a_Range: Search_for_a_Range_TEST.cpp Search_for_a_Range.cpp M_Obj_Dir
+	g++ -g Search_for_a_Range_TEST.cpp -o obj/Search_for_a_Range -lcppunit
+test_Search_for_a_Range: Search_for_a_Range
+	obj/Search_for_a_Range
+
+Search_Insert_Position: Search_Insert_Position_TEST.cpp Search_Insert_Position.cpp M_Obj_Dir
+	g++ -g Search_Insert_Position_TEST.cpp -o obj/Search_Insert_Position -lcppunit
+test_Search_Insert_Position: Search_Insert_Position
+	obj/Search_Insert_Position
 
