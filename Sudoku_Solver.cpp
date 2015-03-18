@@ -70,7 +70,7 @@ public:
         if (board[i][j] == '.') {
             for (it = optionMap[s].begin(); it != optionMap[s].end(); ++it) {
                 board[i][j] = *it;
-                if (isValidSudoku(board)) {
+                if (isValidSudoku(board, i, j)) {
                     if(fillBlank(board, s + 1, optionMap)) {
                         return true;
                     }
@@ -84,41 +84,39 @@ public:
         return false;
     }
 
-    bool isValidSudoku(vector<vector<char> > &board) {
+    bool isValidSudoku(vector<vector<char> > &board, int i, int j) {
         int n = 9;
-        for (int i = 0; i < n; ++i) {
-            set<char> r;
-            for (int j = 0; j < n; ++j) {
-                if (board[i][j] == '.') {
-                    continue;
-                } else if (r.find(board[i][j]) != r.end()) {
-                    return false;
-                } else {
-                    r.insert(board[i][j]);
-                }
+        set<char> r;
+        for (int k = 0; k < n; ++k) {
+            if (board[i][k] == '.') {
+                continue;
+            } else if (r.find(board[i][k]) != r.end()) {
+                return false;
+            } else {
+                r.insert(board[i][k]);
             }
-            set<char> c;
-            for (int j = 0; j < n; ++j) {
-                if (board[j][i] == '.') {
-                    continue;
-                } else if (c.find(board[j][i]) != c.end()) {
-                    return false;
-                } else {
-                    c.insert(board[j][i]);
-                }
+        }
+        set<char> c;
+        for (int k = 0; k < n; ++k) {
+            if (board[k][j] == '.') {
+                continue;
+            } else if (c.find(board[k][j]) != c.end()) {
+                return false;
+            } else {
+                c.insert(board[k][j]);
             }
-            set<char> b;
-            int row = (i/3) * 3;
-            int col = (i%3) * 3;
-            for (int j = 0; j < n; ++j) {
-                char tmp = board[row + j/3][col + j%3];
-                if (tmp == '.') {
-                    continue;
-                } else if (b.find(tmp) != b.end()) {
-                    return false;
-                } else {
-                    b.insert(tmp);
-                }
+        }
+        set<char> b;
+        int row = i - i%3;
+        int col = j - j%3;
+        for (int k = 0; k < n; ++k) {
+            char tmp = board[row + k/3][col + k%3];
+            if (tmp == '.') {
+                continue;
+            } else if (b.find(tmp) != b.end()) {
+                return false;
+            } else {
+                b.insert(tmp);
             }
         }
 
