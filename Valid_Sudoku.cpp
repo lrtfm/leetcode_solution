@@ -38,7 +38,7 @@ public:
             int row = (i/3) * 3;
             int col = (i%3) * 3;
             for (int j = 0; j < n; ++j) {
-                char tmp = board[row + (i/3) * 3][col + (i%3) * 3];
+                char tmp = board[row + j/3][col + j%3];
                 if (tmp == '.') {
                     continue;
                 } else if (b.find(tmp) != b.end()) {
