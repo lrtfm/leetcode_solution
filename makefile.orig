@@ -1,4 +1,7 @@
 all: \
+	Valid_Sudoku \
+	Rotate_Array \
+	Search_Insert_Position \
 	Search_for_a_Range \
 	Search_in_Rotated_Sorted_Array \
 	Longest_Valid_Parentheses \
@@ -26,6 +29,9 @@ all: \
 	Add
 
 test: \
+	test_Valid_Sudoku \
+	test_Rotate_Array \
+	test_Search_Insert_Position \
 	test_Search_for_a_Range \
 	test_Search_in_Rotated_Sorted_Array \
 	test_Longest_Valid_Parentheses \
@@ -180,4 +186,19 @@ Search_for_a_Range: Search_for_a_Range_TEST.cpp Search_for_a_Range.cpp M_Obj_Dir
 	g++ -g Search_for_a_Range_TEST.cpp -o obj/Search_for_a_Range -lcppunit
 test_Search_for_a_Range: Search_for_a_Range
 	obj/Search_for_a_Range
+
+Search_Insert_Position: Search_Insert_Position_TEST.cpp Search_Insert_Position.cpp M_Obj_Dir
+	g++ -g Search_Insert_Position_TEST.cpp -o obj/Search_Insert_Position -lcppunit
+test_Search_Insert_Position: Search_Insert_Position
+	obj/Search_Insert_Position
+
+Rotate_Array: Rotate_Array_TEST.cpp Rotate_Array.cpp M_Obj_Dir
+	g++ -g Rotate_Array_TEST.cpp -o obj/Rotate_Array -lcppunit
+test_Rotate_Array: Rotate_Array
+	obj/Rotate_Array
+
+Valid_Sudoku: Valid_Sudoku_TEST.cpp Valid_Sudoku.cpp M_Obj_Dir
+	g++ -g Valid_Sudoku_TEST.cpp -o obj/Valid_Sudoku -lcppunit
+test_Valid_Sudoku: Valid_Sudoku
+	obj/Valid_Sudoku
 

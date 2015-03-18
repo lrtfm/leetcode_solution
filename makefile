@@ -1,4 +1,7 @@
 all: \
+	Sudoku_Solver \
+	Valid_Sudoku \
+	Rotate_Array \
 	Search_Insert_Position \
 	Search_for_a_Range \
 	Search_in_Rotated_Sorted_Array \
@@ -27,6 +30,9 @@ all: \
 	Add
 
 test: \
+	test_Sudoku_Solver \
+	test_Valid_Sudoku \
+	test_Rotate_Array \
 	test_Search_Insert_Position \
 	test_Search_for_a_Range \
 	test_Search_in_Rotated_Sorted_Array \
@@ -187,4 +193,19 @@ Search_Insert_Position: Search_Insert_Position_TEST.cpp Search_Insert_Position.c
 	g++ -g Search_Insert_Position_TEST.cpp -o obj/Search_Insert_Position -lcppunit
 test_Search_Insert_Position: Search_Insert_Position
 	obj/Search_Insert_Position
+
+Rotate_Array: Rotate_Array_TEST.cpp Rotate_Array.cpp M_Obj_Dir
+	g++ -g Rotate_Array_TEST.cpp -o obj/Rotate_Array -lcppunit
+test_Rotate_Array: Rotate_Array
+	obj/Rotate_Array
+
+Valid_Sudoku: Valid_Sudoku_TEST.cpp Valid_Sudoku.cpp M_Obj_Dir
+	g++ -g Valid_Sudoku_TEST.cpp -o obj/Valid_Sudoku -lcppunit
+test_Valid_Sudoku: Valid_Sudoku
+	obj/Valid_Sudoku
+
+Sudoku_Solver: Sudoku_Solver_TEST.cpp Sudoku_Solver.cpp M_Obj_Dir
+	g++ -g Sudoku_Solver_TEST.cpp -o obj/Sudoku_Solver -lcppunit
+test_Sudoku_Solver: Sudoku_Solver
+	obj/Sudoku_Solver
 
