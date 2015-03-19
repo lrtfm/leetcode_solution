@@ -2,6 +2,8 @@
 #define __COMMON_H__
 #include <vector>
 #include <cstdarg>
+#include <iostream>
+#include <sstream>
 #include <map>
 #include <set>
 #include <stack>

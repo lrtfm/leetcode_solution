@@ -1,4 +1,9 @@
 all: \
+	Trapping_Rain_Water \
+	First_Missing_Positive \
+	Combination_Sum_II \
+	Combination_Sum \
+	Count_and_Say \
 	Sudoku_Solver \
 	Valid_Sudoku \
 	Rotate_Array \
@@ -30,6 +35,11 @@ all: \
 	Add
 
 test: \
+	test_Trapping_Rain_Water \
+	test_First_Missing_Positive \
+	test_Combination_Sum_II \
+	test_Combination_Sum \
+	test_Count_and_Say \
 	test_Sudoku_Solver \
 	test_Valid_Sudoku \
 	test_Rotate_Array \
@@ -208,4 +218,29 @@ Sudoku_Solver: Sudoku_Solver_TEST.cpp Sudoku_Solver.cpp M_Obj_Dir
 	g++ -g Sudoku_Solver_TEST.cpp -o obj/Sudoku_Solver -lcppunit
 test_Sudoku_Solver: Sudoku_Solver
 	obj/Sudoku_Solver
+
+Count_and_Say: Count_and_Say_TEST.cpp Count_and_Say.cpp M_Obj_Dir
+	g++ -g Count_and_Say_TEST.cpp -o obj/Count_and_Say -lcppunit
+test_Count_and_Say: Count_and_Say
+	obj/Count_and_Say
+
+Combination_Sum: Combination_Sum_TEST.cpp Combination_Sum.cpp M_Obj_Dir
+	g++ -g Combination_Sum_TEST.cpp -o obj/Combination_Sum -lcppunit
+test_Combination_Sum: Combination_Sum
+	obj/Combination_Sum
+
+Combination_Sum_II: Combination_Sum_II_TEST.cpp Combination_Sum_II.cpp M_Obj_Dir
+	g++ -g Combination_Sum_II_TEST.cpp -o obj/Combination_Sum_II -lcppunit
+test_Combination_Sum_II: Combination_Sum_II
+	obj/Combination_Sum_II
+
+First_Missing_Positive: First_Missing_Positive_TEST.cpp First_Missing_Positive.cpp M_Obj_Dir
+	g++ -g First_Missing_Positive_TEST.cpp -o obj/First_Missing_Positive -lcppunit
+test_First_Missing_Positive: First_Missing_Positive
+	obj/First_Missing_Positive
+
+Trapping_Rain_Water: Trapping_Rain_Water_TEST.cpp Trapping_Rain_Water.cpp M_Obj_Dir
+	g++ -g Trapping_Rain_Water_TEST.cpp -o obj/Trapping_Rain_Water -lcppunit
+test_Trapping_Rain_Water: Trapping_Rain_Water
+	obj/Trapping_Rain_Water
 
