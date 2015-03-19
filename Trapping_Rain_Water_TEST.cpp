@@ -29,27 +29,37 @@ public:
     void test1() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(1 == 1);
+        int A[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+        int ret = solver.trap(A, 12);
+        CPPUNIT_ASSERT(ret == 6);
     }
     void test2() 
     {
+        int A[] = {0,3};
+        int ret = solver.trap(A, 2);
         // add your code here.
-        CPPUNIT_ASSERT(2 == 2);
+        CPPUNIT_ASSERT(ret == 0);
     }
     void test3() 
     {
+        int A[] = {3,3};
+        int ret = solver.trap(A, 2);
         // add your code here.
-        CPPUNIT_ASSERT(3 == 3);
+        CPPUNIT_ASSERT(ret == 0);
     }
     void test4() 
     {
+        int A[] = {3,0,2};
+        int ret = solver.trap(A, 3);
         // add your code here.
-        CPPUNIT_ASSERT(4 == 4);
+        CPPUNIT_ASSERT(ret == 2);
     }
     void test5() 
     {
         // add your code here.
-        CPPUNIT_ASSERT(5 == 5);
+        int A[] = {0,1,0,2,1,0,3,3,2,1,2,1};
+        int ret = solver.trap(A, 12);
+        CPPUNIT_ASSERT(ret == 5);
     }
     void test6() 
     {
