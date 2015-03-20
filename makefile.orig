@@ -1,4 +1,5 @@
 all: \
+	Multiply_Strings \
 	Trapping_Rain_Water \
 	First_Missing_Positive \
 	Combination_Sum_II \
@@ -35,6 +36,7 @@ all: \
 	Add
 
 test: \
+	test_Multiply_Strings \
 	test_Trapping_Rain_Water \
 	test_First_Missing_Positive \
 	test_Combination_Sum_II \
@@ -243,4 +245,9 @@ Trapping_Rain_Water: Trapping_Rain_Water_TEST.cpp Trapping_Rain_Water.cpp M_Obj_
 	g++ -g Trapping_Rain_Water_TEST.cpp -o obj/Trapping_Rain_Water -lcppunit
 test_Trapping_Rain_Water: Trapping_Rain_Water
 	obj/Trapping_Rain_Water
+
+Multiply_Strings: Multiply_Strings_TEST.cpp Multiply_Strings.cpp M_Obj_Dir
+	g++ -g Multiply_Strings_TEST.cpp -o obj/Multiply_Strings -lcppunit
+test_Multiply_Strings: Multiply_Strings
+	obj/Multiply_Strings
 

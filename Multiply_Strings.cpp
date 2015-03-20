@@ -12,31 +12,48 @@
 class Solution {
 public:
     string multiply(string num1, string num2) {
+        if (num1.size() == 0 || num2.size() == 0) {
+            return string();
+        }
+        if (num1.size() > num2.size()) {
+            return inner(num2, num1);
+        } else {
+            return inner(num1, num2);
+        }
+    }
+
+    string inner(string & num1, string & num2) {
         int c = 0;
-        char ch = '0';
-        int i = num1.size() - 1;
-        int j = num2.size() - 1;
-        string ret;
-        while (i >= 0 && j >= 0) {
-            c = c + (num1[i] - '0')*(num2[j] - '0');
-            ch = c%10 + '0';
-            ret = ret + ch;
-            c = c / 10;
-            i--; j--;
+        int ch = '0';
+        int n = num1.size();
+        int m = num2.size();
+        string ret(n + m, '0');
+
+        int i = n - 1;
+        for ( ; i >= 0; --i) {
+            c = 0;
+            int j = m - 1;
+            for ( ; j >= 0; --j) {
+                c = c + (num1[i] - '0') * (num2[j] - '0') + (ret[n - i + m - j - 2] - '0');
+                ch = c%10 + '0';
+                ret[n -i + m - j - 2] = ch;
+                c = c/10;
+            }
+            while (c != 0) {
+                c = c + (ret[n - i + m - j - 2] - '0');
+                ch = c%10 + '0';
+                ret[n -i + m - j - 2] = ch;
+                c = c/10;
+                j--;
+            }
         }
-        while (c != 0) {
-            ch = c%10 + '0';
-            ret = ret + ch;
-            c = c/10;
-        }
+
         i = ret.size() - 1;
-        while (i >= 0 && ret[i] == 0) {
+        while (i > 0 && ret[i] == '0') {
             i--;
         }
-        if (i < 0) {
-            i = 0;
-        }
-        ret.resize(i + 1);
+        ret.resize(i+1);
+
         return string(ret.rbegin(), ret.rend());
     }
 
