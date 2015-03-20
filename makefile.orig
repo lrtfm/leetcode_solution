@@ -1,4 +1,5 @@
 all: \
+	Trapping_Rain_Water \
 	First_Missing_Positive \
 	Combination_Sum_II \
 	Combination_Sum \
@@ -34,6 +35,7 @@ all: \
 	Add
 
 test: \
+	test_Trapping_Rain_Water \
 	test_First_Missing_Positive \
 	test_Combination_Sum_II \
 	test_Combination_Sum \
@@ -236,4 +238,9 @@ First_Missing_Positive: First_Missing_Positive_TEST.cpp First_Missing_Positive.c
 	g++ -g First_Missing_Positive_TEST.cpp -o obj/First_Missing_Positive -lcppunit
 test_First_Missing_Positive: First_Missing_Positive
 	obj/First_Missing_Positive
+
+Trapping_Rain_Water: Trapping_Rain_Water_TEST.cpp Trapping_Rain_Water.cpp M_Obj_Dir
+	g++ -g Trapping_Rain_Water_TEST.cpp -o obj/Trapping_Rain_Water -lcppunit
+test_Trapping_Rain_Water: Trapping_Rain_Water
+	obj/Trapping_Rain_Water
 
