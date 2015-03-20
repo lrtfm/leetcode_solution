@@ -28,7 +28,7 @@ public:
     void setUp() {}
     void test1() 
     {
-        bool ret = solver.isMatch("aa", "a");
+        bool ret = solver.isMatch("", "?");
         bool exp = false;
         CPPUNIT_ASSERT(ret == exp);
     }
@@ -84,15 +84,15 @@ public:
     void test9() 
     {
         // add your code here.
-        bool ret = solver.isMatch("aa", "*");
-        bool exp = true;
+        bool ret = solver.isMatch("abbabaaabbabbaababbabbbbbabbbabbbabaaaaababababbbabababaabbababaabbbbbbaaaabababbbaabbbbaabbbbababababbaabbaababaabbbababababbbbaaabbbbbabaaaabbababbbbaababaabbababbbbbababbbabaaaaaaaabbbbbaabaaababaaaabb", "**aa*****ba*a*bb**aa*ab****a*aaaaaa***a*aaaa**bbabb*b*b**aaaaaaaaa*a********ba*bbb***a*ba*bb*bb**a*b*bb");
+        bool exp = false;
         CPPUNIT_ASSERT(ret == exp);
     }
     void test10() 
     {
         // add your code here.
-        bool ret = solver.isMatch("aa", "*");
-        bool exp = true;
+        bool ret = solver.isMatch("aaabbbaabaaaaababaabaaabbabbbbbbbbaabababbabbbaaaaba", "a*******b");
+        bool exp = false;
         CPPUNIT_ASSERT(ret == exp);
     }
     void tearDown() {}

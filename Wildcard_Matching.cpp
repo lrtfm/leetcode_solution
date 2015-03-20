@@ -29,22 +29,52 @@ public:
         if (*p == '\0') {
             return false;
         }
+        if (*s == '\0') {
+            while (*p == '*') {
+                p++;
+            }
+            if (*p == '0') {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         if (*p == '*') {
+            while (*p == '*') {
+                p++;
+            }
             while(1) {
-                if(match(s, p+1)) {
+                if (*p != '?' && *p != *s && *s != '\0' && *p != '\0') {
+                    s++;
+                    continue;
+                }
+                const char * t = p;
+                while(*s == *t && *t != '*' && *t != '?' && *s != '\0' && *t != '\0') {
+                    s++;
+                    t++;
+                }
+                if(match(s, t)) {
                     return true;
                 }
-                if (s == '\0') {
+                if (*s == '\0') {
                     break;
                 }
                 s++;
             }
         } else if (*p == '?') {
-            return match(s+1, p+1);
+            while (*p == '?' && *s != '\0') {
+                p++;
+                s++;
+            }
+            return match(s, p);
         } else {
             if (*s == *p) {
-                return match(s+1, p+1);
+                while(*s == *p && *p != '*' && *p != '?' && *s != '\0' && *p != '\0') {
+                    s++;
+                    p++;
+                }
+                return match(s, p);
             }
         }
         return false;
