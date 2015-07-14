@@ -1,4 +1,5 @@
 all: \
+	Wildcard_Matching \
 	Multiply_Strings \
 	Trapping_Rain_Water \
 	First_Missing_Positive \
@@ -36,6 +37,7 @@ all: \
 	Add
 
 test: \
+	test_Wildcard_Matching \
 	test_Multiply_Strings \
 	test_Trapping_Rain_Water \
 	test_First_Missing_Positive \
@@ -250,4 +252,9 @@ Multiply_Strings: Multiply_Strings_TEST.cpp Multiply_Strings.cpp M_Obj_Dir
 	g++ -g Multiply_Strings_TEST.cpp -o obj/Multiply_Strings -lcppunit
 test_Multiply_Strings: Multiply_Strings
 	obj/Multiply_Strings
+
+Wildcard_Matching: Wildcard_Matching_TEST.cpp Wildcard_Matching.cpp M_Obj_Dir
+	g++ -g Wildcard_Matching_TEST.cpp -o obj/Wildcard_Matching -lcppunit
+test_Wildcard_Matching: Wildcard_Matching
+	obj/Wildcard_Matching
 

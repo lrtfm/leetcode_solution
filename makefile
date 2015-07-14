@@ -1,4 +1,5 @@
 all: \
+	Pow \
 	Wildcard_Matching \
 	Multiply_Strings \
 	Trapping_Rain_Water \
@@ -37,6 +38,7 @@ all: \
 	Add
 
 test: \
+	test_Pow \
 	test_Wildcard_Matching \
 	test_Multiply_Strings \
 	test_Trapping_Rain_Water \
@@ -257,4 +259,9 @@ Wildcard_Matching: Wildcard_Matching_TEST.cpp Wildcard_Matching.cpp M_Obj_Dir
 	g++ -g Wildcard_Matching_TEST.cpp -o obj/Wildcard_Matching -lcppunit
 test_Wildcard_Matching: Wildcard_Matching
 	obj/Wildcard_Matching
+
+Pow: Pow_TEST.cpp Pow.cpp M_Obj_Dir
+	g++ -g Pow_TEST.cpp -o obj/Pow -lcppunit
+test_Pow: Pow
+	obj/Pow
 
